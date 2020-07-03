@@ -40,22 +40,20 @@
     } 
 
     function readTextFile(file){
-        var allText = '';
-        var rawFile = new XMLHttpRequest();
-        rawFile.open("GET", file, false);
-        rawFile.onreadystatechange = function ()
-        {
-            if(rawFile.readyState === 4)
-            {
-                if(rawFile.status === 200 || rawFile.status == 0)
-                {
-                    allText = rawFile.responseText;
-                    
+        var allText = '';        
+        var openFile = new XMLHttpRequest();
+
+        openFile.open("GET", file, false);
+        openFile.onreadystatechange = function (){
+            if(openFile.readyState === 4){
+                if(openFile.status === 200 || openFile.status == 0){
+                    allText = openFile.responseText;                    
                 }
             }
         }
-        rawFile.send(null);
 
+        openFile.send(null);
+       
         return allText;
     }   
 
