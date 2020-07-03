@@ -1,7 +1,9 @@
 (function () {
+
     const form = document.querySelector('#search-form');
     const searchField = document.querySelector('#search-keyword');    
     const responseContainer = document.querySelector('#response-container');
+    
     let searchedForText = 'hippos';    
 
     form.addEventListener('submit', function (e) {
@@ -18,7 +20,7 @@
         unsplashRequest.open('GET', `https://api.unsplash.com/search/photos?page=1&query=${searchedForText}`);
         unsplashRequest.setRequestHeader('Authorization', 'Client-ID ' + readTextFile("ClientID.txt") );
         unsplashRequest.onload = addImage;
-        unsplashRequest.send()
+        unsplashRequest.send();
     };
     
     function addImage(){
